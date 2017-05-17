@@ -18,13 +18,19 @@ var Queue = function() {
     var firstElem = Object.keys(storage)[0]
     var temp = storage[firstElem];
     delete storage[firstElem];
-    size--;
+    if (size <= 0) {
+      size = 0;
+    } else {
+      size--;
+    }
+
     return temp;
   };
 
   someInstance.size = function() {
-    return size <= -1 ? 0 : size;
+    return size;
   };
 
   return someInstance;
 };
+//write
