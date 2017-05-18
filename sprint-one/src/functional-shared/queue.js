@@ -6,7 +6,7 @@ var Queue = function() {
   newQueue.storage = {};
   newQueue.index = 0;
   _.extend(newQueue, queueMethods)
-  return queueMethods;
+  return newQueue;
 };
 
 var queueMethods = {};
@@ -19,8 +19,8 @@ queueMethods.enqueue = function(value){
 
 queueMethods.dequeue = function(){
   var firstElem = Object.keys(this.storage)[0];
-  var temp = storage[firstElem];
-  delete storage[firstElem];
+  var temp = this.storage[firstElem];
+  delete this.storage[firstElem];
   if (this.queueSize > 0) {
     this.queueSize--;
   } else {
