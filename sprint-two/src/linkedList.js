@@ -41,14 +41,13 @@ var LinkedList = function() {
     // }
     //
     var searchNodes = function(node){
-      var bool = false;
       if(node.value === target){
         return true;
       }
       else if(node.next !== null ){
         return searchNodes(node.next)
       }
-      return bool;
+      return false;
     }
     return searchNodes(this.head);
   };
