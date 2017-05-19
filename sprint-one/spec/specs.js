@@ -71,6 +71,15 @@ define([
         expect(stack.size()).to.equal(0);
       });
 
+      it('reports a correct size after reaching empty stack and then adding more items', function() {
+      	stack.push('a');
+      	stack.pop();
+      	stack.pop();
+      	stack.push('b')
+      	stack.push('c')
+      	expect(stack.size()).to.equal(2);
+      });
+
       it('allows sequentially additing and removing items', function() {
         stack.push('a');
         expect(stack.pop()).to.equal('a');
