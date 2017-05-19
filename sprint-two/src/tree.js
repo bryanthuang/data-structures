@@ -16,7 +16,7 @@ treeMethods.contains = function(target) {
   var exists = false;
   var searchNodes = function(node){
     if(node.value === target){
-      exists = true;
+      return exists = true;
     }
     if(node.children.length > 0){
       _.each(node.children, function(child){
