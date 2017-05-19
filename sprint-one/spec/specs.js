@@ -55,15 +55,6 @@ define([
         expect(stack.size()).to.equal(1);
       });
 
-      it('reports a correct size after reaching empty stack and then adding more items', function() {
-        stack.push('a');
-        stack.pop();
-        stack.pop();
-        stack.push('b')
-        stack.push('c')
-        expect(stack.size()).to.equal(2);
-      });
-
       it('reports a size of 0 after removing more items than were added', function() {
         stack.push('a');
         stack.pop();
@@ -160,12 +151,12 @@ define([
       });
 
       it('reports a correct size after reaching empty queue and then adding more items', function() {
-        queue.enqueue('a');
-        queue.dequeue();
-        queue.dequeue();
-        queue.enqueue('b')
-        queue.enqueue('c')
-        expect(queue.size()).to.equal(2);
+      	queue.enqueue('a');
+      	queue.dequeue();
+      	queue.dequeue();
+      	queue.enqueue('b')
+      	queue.enqueue('c')
+      	expect(queue.size()).to.equal(2);
       });
 
     });
