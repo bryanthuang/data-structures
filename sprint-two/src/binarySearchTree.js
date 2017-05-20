@@ -5,20 +5,43 @@ var BinarySearchTree = function(value) {
 };
 
 BinarySearchTree.prototype.insert = function(value){
-  if (value <  this.value) {
-    this.left = value;
-  } else if (value > this.value) {
-    this.right = value;
+  if (value < this.value) {
+    //left value exist
+    if(this.left === null){
+      this.left = new BinarySearchTree(value);
+    } else {
+      this.left.insert(value);
+    }
+  }
+
+  if (value > this.value){
+    if(this.right === null){
+      this.right = new BinarySearchTree(value);
+    } else {
+      this.right.insert(value);
+    }
   }
 }
 
 BinarySearchTree.prototype.contains = function(value){
-  // return //true/false
-
+  var contains = false
+  this.depthFirstLog(function(nodeValue){
+    if (value === nodeValue) {
+      contains = true;
+    }
+  })
+  return contains;
 }
 
 
 BinarySearchTree.prototype.depthFirstLog = function(callback){
+  callback(this.value);
+  if(this.left !== null){
+    this.left.depthFirstLog(callback);
+  }
+  if(this.right !== null){
+    this.right.depthFirstLog(callback);
+  }
 
 }
 
