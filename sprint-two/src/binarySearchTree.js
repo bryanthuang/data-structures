@@ -4,6 +4,7 @@ var BinarySearchTree = function(value) {
   this.right = null;
 };
 
+// O(log n)
 BinarySearchTree.prototype.insert = function(value){
   if (value < this.value) {
     //left value exist
